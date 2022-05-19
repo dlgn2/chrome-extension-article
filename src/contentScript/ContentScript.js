@@ -29,8 +29,12 @@ function ContentScript() {
 
   const [message, setMessage] = useState(false);
   const sendMessage = () => {
+    console.log("tıklandı2")
+    if (typeof window.ethereum !== 'undefined') {
+      console.log('MetaMask is installed!');
+    }else{console.log("yüklü değil")}
     chrome.runtime.sendMessage({
-      value: "hello from content script",
+      value: "hello from content script3",
     });
   };
 
@@ -52,8 +56,9 @@ function ContentScript() {
           Close
         </Button>
         <Button variant="contained" onClick={sendMessage}>
-          Send message to background script
+          Send
         </Button>
+
       </Box>
     </Box>
   );

@@ -34,7 +34,7 @@ function Popup() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React4
         </a>
         <button onClick={sendMessage}>Open popup</button>
       </header>

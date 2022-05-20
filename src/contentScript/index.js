@@ -107,20 +107,21 @@ alert('Not installed');
     </div>
   </div>`;
 
-  const style2 = document.createElement('style');
-style2.innerHTML = `
+  let style2 = document.createElement('style');
+style2.textContent = `
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap");
-body {
-  align-items: center;
-  background-color: #eef0f6;
-  display: flex;
-  font-family: "Source Sans Pro", sans-serif;
-  justify-content: center;
-  height: 100vh;
+
+react-extension-container{
+
 }
+
 .card {
   align-items: center;
-  background-color: red;
+  background-color: blue;
+  position:fixed !important;
+  top:25%;
+  left:35%;
+  z-index:9999;
   border-radius: 20px;
   box-shadow: 0 0.4px 3.6px rgba(0, 0, 0, 0.004),
     0 1px 8.5px rgba(0, 0, 0, 0.01), 0 1.9px 15.7px rgba(0, 0, 0, 0.019),
@@ -129,13 +130,13 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 336px;
+  width: 30%;
 }
 .top {
   background-color: #eee;
   border-radius: 20px;
-  margin: 16px 0;
-  width: 260px;
+  width: 90%;
+  margin-top:10px;
 }
 .text {
   box-sizing: border-box;
@@ -281,12 +282,12 @@ body {
 }
 
     `;
-document.head.appendChild(style2);
 
-    const reactRoot = this.body({ mode: "open" }).appendChild(
-      mountPoint
-    );
-    const reactRoot2 = this.body({ mode: "open" }).appendChild(s);
+    const reactRoot = this.attachShadow({ mode: "open" });
+    reactRoot.appendChild(mountPoint);
+    reactRoot.appendChild(style2);
+
+    const reactRoot2 = this.attachShadow({ mode: "open" }).appendChild(s);
 
     const jss = create({
       ...jssPreset(),
@@ -307,6 +308,7 @@ const initWebComponent = function () {
   customElements.define("react-extension-container", ReactExtensionContainer);
 
   const app = document.createElement("react-extension-container");
+  app.id = "react-extension-container";
   document.documentElement.appendChild(app);
 };
 

@@ -8,6 +8,16 @@ import { claimPopup } from "./main";
 
 class ReactExtensionContainer extends HTMLElement {
   connectedCallback() {
+    console.log(chrome);
+
+    chrome.runtime.onMessage.addListener(function (request, sender, sendResponse){
+      if(request.action == "readDom"){
+      
+      console.log(request.email);
+      
+      }
+      })
+
     let a = `
 `;
     var s = document.createElement("script");
@@ -36,7 +46,8 @@ class ReactExtensionContainer extends HTMLElement {
     reactRoot.appendChild(style2);
     reactRoot.appendChild(scrpt);
 
-    const reactRoot2 = this.attachShadow({ mode: "open" }).appendChild(s);
+    const reactRoot2 = this.attachShadow({ mode: "open" });
+    reactRoot2.appendChild(s);
 
     const jss = create({
       ...jssPreset(),
@@ -47,8 +58,7 @@ class ReactExtensionContainer extends HTMLElement {
     ReactDOM.render(
       <StylesProvider jss={jss}>
         <ContentScript />
-      </StylesProvider>,
-      mountPoint
+      </StylesProvider>
     );
   }
 }
@@ -58,7 +68,7 @@ const initWebComponent = function () {
 
   const app = document.createElement("react-extension-container");
   app.id = "react-extension-container";
-  document.documentElement.appendChild(app);
+  document.body.appendChild(app);
 };
 
 initWebComponent();

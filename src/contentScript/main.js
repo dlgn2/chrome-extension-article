@@ -1,11 +1,11 @@
 export const claimPopup =  {
-stringPopUp:` <div class="card">
-<div class="sharapnel card2">
-    <img class="sharapnelImg" style="align-items:center;width:200px; margin-top:30px;margin-bottom:30px;"
-        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f4f5837c-dd29-4f01-91d0-2aee7341ca2a/ddtxy61-603d4bf0-e67c-47ac-880e-5e30af7f925a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Y0ZjU4MzdjLWRkMjktNGYwMS05MWQwLTJhZWU3MzQxY2EyYVwvZGR0eHk2MS02MDNkNGJmMC1lNjdjLTQ3YWMtODgwZS01ZTMwYWY3ZjkyNWEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.gsHpesziZ6sVvJzSawbwdvffEBZUzkRapvTGfH7dF9I" />
+stringPopUp:`     <div class="card">
+<div class="riot card2">
+    <img class="riotImg" style="width:100%; margin-bottom:30px;border-top-left-radius: 20px; border-top-right-radius:20px"
+        src="https://staticg.sportskeeda.com/editor/2022/01/14535-16433089700630-1920.jpg" />
     <div class="text">
         <div class="title">
-            Claim Your Free Sword !
+            Claim Your Free Skin !
             <div class="tooltip">
                 <div class="tooltip-spacing">
                     <div class="tooltip-bg1"></div>
@@ -31,13 +31,61 @@ stringPopUp:` <div class="card">
                 </g>
             </svg>
             <div class="popup-text">
-                Thank you for allowing SnickerDoodle. You can immediately get your free sword to your account
+                Thank you for allowing SnickerDoodle. You can immediately get your free skin to your account
                 via
                 click 'Do it!' button.
             </div>
         </div>
         <div class="info">
-            Do you want to get your free "sword" ?
+            Do you want to get your free "skin" ?
+
+        </div>
+    </div>
+
+    <div class="buttons">
+        <div class="button">Cancel</div>
+        <div onclick="doItClicked()" class="button button-primary">Do it!</div>
+    </div>
+</div>
+
+<div class="sharapnel card2">
+    <img class="sharapnelImg" style="width:100%;height:320px;margin-bottom:30px;border-top-left-radius: 20px; border-top-right-radius:20px"
+        src="https://m.media-amazon.com/images/G/01/sm/CallOfDutyS03/2021/LootCards/Drop01/CoD_BOCW_Warzone_drop6_ODP_US_286x320.jpg" />
+    <div class="text">
+        <div class="title">
+            Claim Your Free guns !
+            <div class="tooltip">
+                <div class="tooltip-spacing">
+                    <div class="tooltip-bg1"></div>
+                    <div class="tooltip-bg2"></div>
+                    <div class="tooltip-text">?</div>
+                </div>
+            </div>
+            <svg class="popup-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 130" height="130"
+                width="300">
+                <path
+                    d="M36.5 12.695c15.9-2.4 32.556-4.284 82.977-3.815 79.67.74 121.785.26 145.294 5.51 18.483 4.13 34.333 11.696 33.382 32.11l-1.696 36.39c-1.01 21.68-11.678 29.377-21.934 30.838-14.884 2.12-29.72 3.52-54.512-.848C232.522 118.263 233.5 129 233.5 129s-1.992-7.686-32.218-14c-17.933-5.043-118.204 3.687-163.51-2.544-21.317-2.932-33.706-8.26-34.228-27.022L2.272 39.717c-.46-16.58 12.34-23.718 34.23-27.022z"
+                    fill="#303030" stroke="#000" />
+            </svg>
+            <svg class="popup-outline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 130" height="130"
+                width="300">
+                <g stroke-width="2" stroke-linecap="round">
+                    <path class="popup-outline-left"
+                        d="M233.5 129s-1.992-7.686-32.218-14c-17.933-5.043-118.204 3.687-163.51-2.544-21.317-2.932-33.706-8.26-34.228-27.022L2.272 39.717c-.46-16.58 12.34-23.718 34.23-27.022 15.897-2.4 32.554-4.284 82.975-3.815"
+                        fill="none" stroke="#303030" />
+                    <path class="popup-outline-right"
+                        d="M119.477 8.88c79.67.74 121.785.26 145.294 5.51 18.483 4.13 34.333 11.696 33.382 32.11l-1.696 36.39c-1.01 21.68-11.678 29.377-21.934 30.838-14.884 2.12-29.72 3.52-54.512-.848C232.522 118.263 233.5 129 233.5 129"
+                        fill="none" stroke="#303030" />
+                </g>
+            </svg>
+            <div class="popup-text">
+                Thank you for allowing SnickerDoodle. You can immediately get your free guns to your account
+                via
+                click 'Do it!' button.
+            </div>
+        </div>
+        <div class="info">
+            Do you want to get your free "guns" ?
 
         </div>
     </div>
@@ -53,6 +101,7 @@ stringPopUp:` <div class="card">
             THANK YOU !
         </div>
     </div>
+</div>
 </div>
 `
 ,
@@ -252,16 +301,21 @@ react-extension-container {}
     `,
 
     scrptb: `
+
+    console.log("test");
+  let shadowRootElement = document.getElementById("react-extension-container").shadowRoot;
+  
+
     let account = [];
     if (typeof window.ethereum !== 'undefined') {
         console.log(window.location.hostname);
-        if (window.location.hostname === '127.0.0.1') {
-            document.getElementsByClassName("riot")[0].style = "display:block"
-            document.getElementsByClassName("sharapnel")[0].style = "display:none"
+        if (window.location.hostname === 'www.shrapnel.com') {
+            shadowRootElement.querySelector(".riot").style = "display:none"
+            shadowRootElement.querySelector(".sharapnel").style = "display:block"
         }
-        if (window.location.hostname === 'www.riotgames.com') {
-            document.getElementsByClassName("riot")[0].style = "display:block"
-            document.getElementsByClassName("sharapnel")[0].style = "display:none"
+        if (window.location.hostname === 'staratlas.com') {
+            shadowRootElement.querySelector(".riot").style = "display:block"
+            shadowRootElement.querySelector(".sharapnel").style = "display:none"
         }
 
 
@@ -269,9 +323,9 @@ react-extension-container {}
         let checkS = sessionStorage.getItem("shrapnel");
         let checkR = sessionStorage.getItem("riot");
 
-        if (window.location.hostname === '127.0.0.1' && checkS === null) {
-            console.log("test")
-            document.getElementsByClassName("card")[0].style = "display:block"
+        if (window.location.hostname === 'www.shrapnel.com' && checkS === null) {
+            
+            shadowRootElement.querySelector(".card").style = "display:block"
             async function getAccount() {
                 const accounts = await ethereum.request({
                     method: 'eth_requestAccounts'
@@ -279,8 +333,8 @@ react-extension-container {}
                 account.push(accounts[0]);
                 console.log(accounts);
                 console.log(account);
-                document.getElementsByClassName("card2")[0].style = "display:none"
-                document.getElementsByClassName("card3")[0].style = "display:block"
+                shadowRootElement.querySelector(".sharapnel").style = "display:none"
+                shadowRootElement.querySelector(".card3").style = "display:block"
                 sessionStorage.setItem("shrapnel", true);
             }
 
@@ -291,8 +345,8 @@ react-extension-container {}
         }
 
 
-        if (window.location.hostname === 'www.riotgames.com' && checkR === null) {
-            document.getElementsByClassName("card")[0].style = "display:block"
+       else if (window.location.hostname === 'staratlas.com' && checkR === null) {
+            shadowRootElement.querySelector(".card").style = "display:block"
             async function getAccount() {
                 const accounts = await ethereum.request({
                     method: 'eth_requestAccounts'
@@ -300,8 +354,8 @@ react-extension-container {}
                 account.push(accounts[0]);
                 console.log(accounts);
                 console.log(account);
-                document.getElementsByClassName("card2")[0].style = "display:none"
-                document.getElementsByClassName("card3")[0].style = "display:block"
+                shadowRootElement.querySelector(".riot").style = "display:none"
+                shadowRootElement.querySelector(".card3").style = "display:block"
                 sessionStorage.setItem("riot", true);
             }
 
@@ -309,6 +363,8 @@ react-extension-container {}
                 getAccount();
             }
 
+        }else{
+            shadowRootElement.querySelector(".card").style = "display:none"
         }
 
 

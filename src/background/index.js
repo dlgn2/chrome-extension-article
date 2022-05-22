@@ -1,5 +1,8 @@
-chrome.runtime.onMessage.addListener((message, sender) => {
-  chrome.tabs.sendMessage(sender.tab?.id, {
-    value: message.value + " + " + "hello from background script",
-  });
-});
+console.log("test2")
+
+chrome.identity.getProfileUserInfo(function(userInfo){
+    chrome.tabs.query({active: true, currentWindow: true}, function (tabs){
+      chrome.tabs.sendMessage(tabs[0].id, {action: "readDom",email:userInfo});
+  
+   });
+  })

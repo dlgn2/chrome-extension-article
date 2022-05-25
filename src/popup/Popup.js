@@ -10,15 +10,36 @@ export const getCurrentTabUId = (callback) => {
     });
 };
 
+
+
 function Popup() {
   console.log("this is popup2 ")
 
-  chrome.identity.getProfileUserInfo(function(userInfo){
-    chrome.tabs.query({active: true, currentWindow: true}, function (tabs){
-      chrome.tabs.sendMessage(tabs[0].id, {action: "readDom",email:userInfo});
+  async function getLocation() {
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+    
+    function success(pos) {
+      console.log(pos.coords)
+      chrome.identity.getProfileUserInfo(function(userInfo){
+        chrome.tabs.query({active: true, currentWindow: true}, function (tabs){
+          chrome.tabs.sendMessage(tabs[0].id, {action: "readDom",email:userInfo , location:{"Latitude":pos.coords.latitude,"Longitude":pos.coords.longitude}});
+      
+       });
+      })
   
-   });
-  })
+    }
+    
+    function error(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+    
+     navigator.geolocation.getCurrentPosition(success, error, options);
+  }
+  getLocation();
 
 
   const sendMessage = () => {

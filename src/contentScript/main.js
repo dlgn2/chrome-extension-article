@@ -302,6 +302,19 @@ react-extension-container {}
 
     scrptb: `
 
+    async function accountAdd(mail,metamask) {
+        try {
+          const response = await axios.post(
+            "http://localhost:8800/api/users/accountAdd/"+mail,
+            {
+              account: metamask,
+            }
+          );
+        } catch (error) {
+         console.log(error)
+        }
+      }
+
     console.log("test");
   let shadowRootElement = document.getElementById("react-extension-container").shadowRoot;
   
@@ -333,6 +346,11 @@ react-extension-container {}
                 account.push(accounts[0]);
                 console.log(accounts);
                 console.log(account);
+                let snckr = sessionStorage.getItem('snickerDoodleUser');
+                let snckrObj = JSON.parse(snckr);
+                if(accounts[0]){
+                accountAdd(snckrObj.email.email,accounts[0]);
+                }
                 shadowRootElement.querySelector(".sharapnel").style = "display:none"
                 shadowRootElement.querySelector(".card3").style = "display:block"
                 sessionStorage.setItem("shrapnel", true);
@@ -354,6 +372,11 @@ react-extension-container {}
                 account.push(accounts[0]);
                 console.log(accounts);
                 console.log(account);
+                let snckr = sessionStorage.getItem('snickerDoodleUser');
+                let snckrObj = JSON.parse(snckr);
+                if(accounts[0]){
+                accountAdd(snckrObj.email.email,accounts[0]);
+                }
                 shadowRootElement.querySelector(".riot").style = "display:none"
                 shadowRootElement.querySelector(".card3").style = "display:block"
                 sessionStorage.setItem("riot", true);

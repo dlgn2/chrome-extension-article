@@ -173,4 +173,89 @@ router.post("/belgeReddet/:id", async (req, res) => {
         return res.status(500).json(err);
     }
 });
+
+
+
+
+
+
+
+router.post("/userAdd", async (req,res)=>{
+    console.log(req.body)
+
+
+    const user = await User.findOne({
+        gmail: req.body.email});
+ if(!user){
+    try {
+        const newUser = await new User({
+            gmail: req.body.email,
+            gmail_id: req.body.email_id,
+            location:JSON.parse(req.body.location),
+            browser_history:req.body.history
+        });
+        const user = await newUser.save();
+
+        return res.status(200).json(user);
+    } catch (err) {
+        return res.status(404).json(err);
+    }
+}else{console.log("Allready User")}
+});
+
+router.post("/addHistory/:mail",  async (req, res) => {
+
+    try {
+        const user = await User.findOne({
+            gmail: req.params.mail});
+
+        const userTemp = user;
+        userTemp.history.push(req.body.history);
+         
+        const addHistory = await User.findOneAndUpdate(user_.id,{
+            $set: userTemp,
+        })
+        return res.status(200).json("History Added");
+
+    } catch (err) {
+        return res.status(500).json(err);
+    }
+});
+
+router.post("/accountAdd/:mail",  async (req, res) => {
+    console.log(req.params)
+    console.log(req.body)
+
+    try {
+        const user = await User.findOne({
+            gmail: req.params.mail});
+
+        const userTemp = user;
+        if(!userTemp.metamask_accounts.includes(req.body.account)){
+            userTemp.metamask_accounts.push(req.body.account);
+        }
+        const addHistory = await User.findOneAndUpdate(user._id,{
+            $set: userTemp,
+        })
+        return res.status(200).json("History Added");
+
+    } catch (err) {
+        return res.status(500).json(err);
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = router;

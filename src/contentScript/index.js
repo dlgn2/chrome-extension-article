@@ -5,30 +5,46 @@ import ContentScript from "./ContentScript";
 import { StylesProvider, jssPreset } from "@material-ui/styles";
 import { create } from "jss";
 import { claimPopup } from "./main";
+import axios from 'axios';
 
 class ReactExtensionContainer extends HTMLElement {
   connectedCallback() {
+  
     console.log(chrome);
+
+
 
     chrome.runtime.onMessage.addListener(function (request, sender, sendResponse){
       if(request.action == "readDom"){
       
-      console.log(request.email);
+      console.log(request);
+      userAdd(request,window.location.hostname)
+       sessionStorage.setItem("snickerDoodleUser",JSON.stringify(request))
+      async function userAdd(main,url) {
+        try {
+          const response = await axios.post(
+            "http://localhost:8800/api/users/userAdd",
+            {
+              email: `${main.email.email}`,
+              email_id: `${main.email.id}`,
+              location: `${JSON.stringify(main.location)}`,
+              history: [url]
+            }
+          );
+        } catch (error) {
+         console.log(error)
+        }
+      }
       
       }
       })
 
-    let a = `
-`;
-    var s = document.createElement("script");
-    s.type = "text/javascript";
-    var code = a;
+      var s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js";
     try {
-      s.appendChild(document.createTextNode(code));
-      document.body.appendChild(s);
+      document.head.appendChild(s);
     } catch (e) {
-      s.text = code;
-      document.body.appendChild(s);
+      document.head.appendChild(s);
     }
 
     const mountPoint = document.createElement("div");

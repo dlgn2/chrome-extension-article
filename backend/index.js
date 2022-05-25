@@ -10,8 +10,7 @@ var cors = require('cors');
 var cookieParser = require('cookie-parser')
 var cron = require('node-cron');
 const userRoute = require("./routes/users.js");
-const authRoute = require("./routes/auth.js");
-const helpRoute = require("./routes/help.js");
+const partnerRoute = require("./routes/partner.js");
 const { get } = require("jquery");
 
 
@@ -27,7 +26,7 @@ console.log("connected to mongodb")
 
 
 //middleware
-app.use(cors({origin: 'http://localhost:3000' , credentials: true }))
+app.use(cors({origin: '*' , credentials: true }))
 app.use(express.json());
 app.use(bodyParser.json()); // <--- Here
 app.use(bodyParser.urlencoded({extended: false}));
@@ -35,8 +34,7 @@ app.use(cookieParser())
 app.use(helmet());
 app.use(morgan("common"));
 app.use("/api/users" , userRoute);
-app.use("/api/auth" , authRoute);
-app.use("/api/help" , helpRoute);
+app.use("/api/partner" , partnerRoute);
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from

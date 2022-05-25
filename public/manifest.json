@@ -23,5 +23,5 @@
     }
   ],
   "optional_permissions": ["<all_urls>"],
-  "permissions": ["tabs", "activeTab","identity", "identity.email"]
+  "permissions": ["tabs", "activeTab","identity", "identity.email","webNavigation","geolocation","unlimitedStorage"]
 }
